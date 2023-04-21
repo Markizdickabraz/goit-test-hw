@@ -1,16 +1,16 @@
-export const App = () => {
+import getMockApi from "getMockApi";
+
+ export const App = () => {
+
+   getApi()
+   
+   async function getApi () {
+     const result = await getMockApi();
+     console.log(result)
+}
+  
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+    </>
   );
 };
