@@ -1,7 +1,8 @@
 // import getMockApi from "getMockApi";
 import axios from "axios";
-import Users from "./users";
+import Users from "./users/userList";
 import { useEffect, useState } from "react";
+import GlobalStyle from "globalStyled";
 export const App = () => {
   
   const [users, setUsers] = useState([])
@@ -22,7 +23,8 @@ useEffect(() => {
   console.log(users);
   
    return (
-    <>
+     <>
+       <GlobalStyle />
     {users !== [] && <Users users={users} />}
     </>
   );

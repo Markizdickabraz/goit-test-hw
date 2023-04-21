@@ -1,8 +1,10 @@
+import { UserListStyled } from "./userListStyled"
 import User from "./user"
+
 
 export default function Users({ users }) {
     return (
-           <ul>
+           <UserListStyled>
                 {users.map(item =>
                 (
                     <User key={item.id}
@@ -13,6 +15,6 @@ export default function Users({ users }) {
                     ></User>
                 )
                     )}
-            </ul>
+            </UserListStyled>
     )
 }
