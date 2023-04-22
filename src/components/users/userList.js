@@ -8,6 +8,7 @@ export default function Users({ users }) {
                 {users.map(item =>
                 (
                     <User key={item.id}
+                        id={ item.id}
                         name={item.user}
                         avatar={item.avatar}
                         tweets={item.tweets}

@@ -19,8 +19,6 @@ async function getUsers() {
 useEffect(() => {
   getUsers();
 }, [])
-
-  console.log(users);
   
    return (
      <>
