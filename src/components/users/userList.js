@@ -4,7 +4,7 @@ import User from "./user"
 
 export default function Users({ users }) {
     return (
-           <UserListStyled>
+        <UserListStyled>
                 {users.map(item =>
                 (
                     <User key={item.id}
