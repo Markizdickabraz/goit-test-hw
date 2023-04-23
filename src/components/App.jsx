@@ -16,8 +16,6 @@ export const App = () => {
 async function getUsers() {
   try {
     const response = await axios.get(`https://6442af8f76540ce22592fcfe.mockapi.io/users?page=1&limit=${limit}`)
-    // axios.searchParams.append('page', 1); //https://PROJECT_TOKEN.mockapi.io/tasks?completed=false&page=1
-
     setUsers(response.data)
   } catch (error) {
     console.log(error);
@@ -34,6 +32,6 @@ async function getUsers() {
        {users !== [] && <Users users={users} />}
       <BtnContainerLoadMore>
             <BtnLoadMore type="button" onClick={limitDecrement}>Load More</BtnLoadMore>
-        </BtnContainerLoadMore>    </>
+      </BtnContainerLoadMore>    </>
   );
 };

@@ -12,7 +12,7 @@ export default function User({name, tweets, avatar, followers, id, isFollowing})
     const following = async () => {
         const updatedFollowerCount = btnFollowing ? follower - 1 : follower + 1;
         const updateIsFollowing = !isFollowing ? true : false;
-        
+        // const formattedNumberFollowing = updatedFollowerCount.toLocaleString('en-US', { maximumFractionDigits: 0 });        
         try {
             await axios.put(
                 `https://6442af8f76540ce22592fcfe.mockapi.io/users/${id}`,
@@ -26,6 +26,7 @@ export default function User({name, tweets, avatar, followers, id, isFollowing})
             }
         };
 
+    
     return (
         <Container key={id} id={id}>
             <Logo src={logo} alt='logo' />
@@ -35,7 +36,7 @@ export default function User({name, tweets, avatar, followers, id, isFollowing})
             </AvatarContainer>
             <Line></Line>
             <Tweets>{tweets} Tweets</Tweets>
-            <Followers>{follower} followers</Followers>
+            <Followers>{follower.toLocaleString('en-US', { maximumFractionDigits: 0 })} followers</Followers>
             <BtnContainer>
                 {!btnFollowing && <BtnFalse type="button" onClick={following}>follow</BtnFalse>}
                 {btnFollowing && <BtnTrue type="button" onClick={following}>following</BtnTrue>}
