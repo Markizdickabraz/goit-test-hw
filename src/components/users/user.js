@@ -1,41 +1,31 @@
 import { Container, Picture,Logo, AvatarContainer, Line, Tweets, Followers,BtnContainer, BtnFalse, BtnTrue } from "./userStyled";
 import pictureabstraction from '../../Image/picture21.png';
 import logo from '../../Image/Logo.svg';
-import { useState } from "react";
+import { useState} from "react";
 import axios from "axios";
 
-export default function User({ name, tweets, avatar, followers, id}) {
+export default function User({name, tweets, avatar, followers, id, isFollowing}) {
 
-    const [btnFollowing, setBtnFollowing] = useState(false);
     const [follower, setFollower] = useState(followers);
-        
-    async function updateUsers() {
-        try {
-            const response = await axios.put(
-            `https://6442af8f76540ce22592fcfe.mockapi.io/users/${id}`,
-            {followers: follower}
-            );
-            console.log(response.data);
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-     function following() {
-        // if (e.target.nodeName !== 'BUTTON') {
-        //     return;
-        // }
-        if (btnFollowing) {
-            setBtnFollowing(false)
-            setFollower(follower - 1)
-        }  
-        if (!btnFollowing) {
-            setBtnFollowing(true)
-            setFollower(follower + 1)
-        }
-            updateUsers()
-    };
+    const [btnFollowing, setBtnFollowing] = useState(isFollowing);
     
+    const following = async () => {
+        const updatedFollowerCount = btnFollowing ? follower - 1 : follower + 1;
+        const updateIsFollowing = !isFollowing ? true : false;
+        
+        try {
+            await axios.put(
+                `https://6442af8f76540ce22592fcfe.mockapi.io/users/${id}`,
+                { followers: updatedFollowerCount, isFollowing : updateIsFollowing}
+
+                );
+                setFollower(updatedFollowerCount);
+                setBtnFollowing(!btnFollowing);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
     return (
         <Container key={id} id={id}>
             <Logo src={logo} alt='logo' />
