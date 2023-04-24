@@ -83,6 +83,7 @@ font-size: 18px;
 line-height: 22px;
 text-transform: uppercase;
 color: #373737;
+cursor: pointer;
 `;
 
 export const BtnTrue = styled.button`
@@ -98,4 +99,5 @@ font-size: 18px;
 line-height: 22px;
 text-transform: uppercase;
 background: #5CD3A8;
+cursor: pointer;
 `;

@@ -1,4 +1,4 @@
-import { StyledLink, Title } from "components/users/userListStyled";
+import { StyledLink, Title } from "pages/userListStyled";
 
 export default function Home() {
     return (

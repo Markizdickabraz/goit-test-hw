@@ -1,7 +1,7 @@
-import Users from "./pages/userList";
+import Users from "../pages/userList";
 import GlobalStyle from "globalStyled";
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "../pages/Home";
 import { AppStyle } from "./appStyled";
 
 
@@ -15,5 +15,6 @@ export const App = () => {
           <Route path="*" element={<Home/>} /> 
        </Routes>
      </AppStyle>
+
   );
 };

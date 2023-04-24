@@ -15,6 +15,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+p, li, ul, h1 {
+  margin: 0;
+  padding:0;
+}
 `
+
 
 export default GlobalStyle;

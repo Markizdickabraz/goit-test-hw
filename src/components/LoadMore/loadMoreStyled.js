@@ -20,6 +20,7 @@ font-size: 18px;
 line-height: 22px;
 text-transform: uppercase;
 color: #373737;
+cursor: pointer;
 &:active{
 background: #5CD3A8;
 }
