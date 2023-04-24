@@ -1,36 +1,19 @@
-import {BtnContainerLoadMore,BtnLoadMore } from "./LoadMore/loadMoreStyled";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Users from "./users/userList";
+import Users from "./pages/userList";
 import GlobalStyle from "globalStyled";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import { AppStyle } from "./appStyled";
+
 
 export const App = () => {
-  
-  const [users, setUsers] = useState([])
-  const [limit, setLimit] = useState(3);
-  
-    const limitDecrement = () => {
-        setLimit(limit + 3);
-    }
-    useEffect(() => {
-    async function getUsers() {
-      try {
-        const response = await axios.get(`https://6442af8f76540ce22592fcfe.mockapi.io/users?page=1&limit=${limit}`)
-        setUsers(response.data)
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    getUsers()
-  }, [limit])
-  
    return (
-     <>
-        <GlobalStyle />
-       {users !== [] && <Users users={users} />}
-      <BtnContainerLoadMore>
-            <BtnLoadMore type="button" onClick={limitDecrement}>Load More</BtnLoadMore>
-       </BtnContainerLoadMore>
-     </>
+     <AppStyle>
+       <GlobalStyle />
+       <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tweets" element={<Users />}> </Route>
+          <Route path="*" element={<Home/>} /> 
+       </Routes>
+     </AppStyle>
   );
 };
